@@ -96,3 +96,20 @@ color: #e74c3c;
 font-size: 0.875rem;
 margin-top: 0.25rem;
 }
+
+/* Estilo para a borda do input em caso de erro */
+input.error {
+    border-color: red;
+}
+
+/* Estilo para a borda do input em caso de sucesso */
+input.success {
+    border-color: green;
+}
+
+/* Estilo para a mensagem de erro injetada */
+.error-message {
+    color: red;
+    font-size: 0.8em;
+    margin-top: 5px;
+}

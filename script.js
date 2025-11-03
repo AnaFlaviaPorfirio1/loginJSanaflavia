@@ -42,3 +42,62 @@ showSuccess(emailInput);
 return true;
 }
 }
+
+// ... (Continuação do código da primeira parte)
+
+    function validatePassword() {
+        const password = passwordInput.value.trim();
+
+        if (password === "") {
+            showError(passwordInput, 'Senha é obrigatória');
+            return false;
+        } else if (password.length < 6) {
+            showError(passwordInput, 'Senha deve ter pelo menos 6 caracteres');
+            return false;
+        } else {
+            showSuccess(passwordInput);
+            return true;
+        }
+    }
+
+    // Funções de manipulação de erro e sucesso no DOM
+
+    function showError(input, message) {
+        const inputGroup = input.parentElement;
+
+        // Remove classes de sucesso se existirem
+        input.classList.remove('success');
+
+        // Adiciona classes de erro
+        input.classList.add('error');
+
+        // Remove mensagens de erro anteriores
+        const existingError = inputGroup.querySelector('.error-message');
+        if (existingError) {
+            existingError.remove();
+        }
+
+        // Adiciona mensagem de erro
+        const errorElement = document.createElement('div');
+        errorElement.classList.add('error-message');
+        errorElement.textContent = message;
+        inputGroup.appendChild(errorElement);
+    }
+
+    function showSuccess(input) {
+        const inputGroup = input.parentElement;
+
+        // Remove classes de erro se existirem
+        input.classList.remove('error');
+
+        // Adiciona classes de sucesso
+        input.classList.add('success');
+
+        // Remove mensagens de erro
+        const existingError = inputGroup.querySelector('.error-message');
+        if (existingError) {
+            existingError.remove();
+        }
+        // Se houver uma mensagem de sucesso para adicionar, você adicionaria aqui, mas o código atual apenas remove o erro.
+    }
+});
